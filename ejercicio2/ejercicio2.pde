@@ -6,6 +6,7 @@ void setup(){
 size(400,400);
 font = loadFont("Monospaced.plain-48.vlw");
 a= "Buenos días";
+textFont(font);
 textSize(60);
 noStroke();
 fondo=255;
