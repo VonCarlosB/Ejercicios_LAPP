@@ -54,6 +54,7 @@ void draw(){
     }
   }
   else{
+    frameRate(60);
     pushMatrix();
     translate(200,200);
     rotate(radians(degrees));
