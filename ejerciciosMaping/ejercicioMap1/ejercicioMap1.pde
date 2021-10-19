@@ -13,9 +13,9 @@ void draw(){
   if(mouseX < 70 && mouseX > 20 && mouseY < 380 && mouseY > 330){
     noStroke();
     fill(0);
-    posH = map(mouseX, 20, 70, -20, 400);
+    posH = map(mouseX, 20, 70, -20, 420);
     rect(0,190,posH,20);
-    tam = map(mouseY, 330, 380, 0, 420);
-    rect(posH-1,200-(tam/2),20,tam);
+    tam = map(mouseY, 330, 380, 20, 400);
+    rect(posH-20,200-(tam/2),20,tam);
   }
 }

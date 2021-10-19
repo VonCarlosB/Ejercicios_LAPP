@@ -1,21 +1,29 @@
-float posH, tam;
-
+float posH, tam, r, b;
+int i, numcirculos;
 void setup(){
   size(400,400);
   smooth();
+  i = 0;
 }
 
 void draw(){
   background(255);
   fill(255);
   stroke(1);
-  rect(20,330,50,50);
-  if(mouseX < 70 && mouseX > 20 && mouseY < 380 && mouseY > 330){
+  rect(300,320,50,50);
+  if(mouseX < 350 && mouseX > 300 && mouseY < 370 && mouseY > 320){
+    posH = map(mouseX, 300, 350, -20, 400);
+    tam = map(mouseY, 320, 370, 10, 420);
+    r = int(map(mouseY, 320, 370, 200, 0));
+    b = int(map(mouseY, 320, 370, 200, 255));
     noStroke();
-    fill(0);
-    posH = map(mouseX, 20, 70, -20, 400);
-    rect(0,190,posH,20);
-    tam = map(mouseY, 330, 380, 0, 420);
-    rect(posH-1,200-(tam/2),20,tam);
+    fill(r, r, b);
+    rect(posH,200-(tam/2),20,tam);
+    stroke(1);
+    numcirculos = int(posH/25);
+    for(int i = 0; i<=numcirculos; i++){
+      fill(255, 255-(i*25), 255);
+      circle(i*25,200,20);
+    }
   }
 }
