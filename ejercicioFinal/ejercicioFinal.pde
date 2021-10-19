@@ -28,7 +28,6 @@ void setup(){
 
 void draw(){
   background(135,120,120);
-  color(255);
   degrees += 4;
   if(contador%2 == 0 && contador<12){
   ancho = textWidth(frase[contador]); 
@@ -37,7 +36,10 @@ void draw(){
       contador++;
       x = 400-int(textWidth(frase[contador]));
     }
-    else x += int(400/ancho);
+    else{
+      x++;
+      frameRate(400-int(textWidth(frase[contador])));
+    }
   }
   else if(contador<12){
   ancho = textWidth(frase[contador]); 
@@ -46,7 +48,10 @@ void draw(){
       contador++;
       x = 0;
     }
-    else x -= int(400/ancho);
+    else{
+      x--;
+      frameRate(400-int(textWidth(frase[contador])));
+    }
   }
   else{
     pushMatrix();
