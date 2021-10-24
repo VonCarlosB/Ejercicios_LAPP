@@ -4,7 +4,7 @@ int contador, x, degrees;
 float ancho;
 void setup(){
   size(400, 400);
-  frase = new String[12];
+  frase = new String[13];
   frase[0] = "Con";
   frase[1] = "estas";
   frase[2] = "palabras";
@@ -17,7 +17,8 @@ void setup(){
   frase[9] = "curso";
   frase[10] = "de";
   frase[11] = "Processing";
-  fuente = loadFont("Monospaced.vlw");
+  frase[12] = " ";
+  fuente = loadFont("SansSerif.vlw");
   textFont(fuente, 50);
   textSize(50);
   contador = 0;
@@ -29,19 +30,19 @@ void setup(){
 void draw(){
   background(135,120,120);
   degrees += 4;
-  if(contador%2 == 0 && contador<12){
+  if(contador%2 == 0 && contador<frase.length){
   ancho = textWidth(frase[contador]); 
   text(frase[contador], x, 200);
     if(x+ancho >= 400){
       contador++;
-      x = 400-int(textWidth(frase[contador]));
+      if(contador<13) x = 400-int(textWidth(frase[contador]));
     }
     else{
       x++;
       frameRate(400-int(textWidth(frase[contador])));
     }
   }
-  else if(contador<12){
+  else if(contador<frase.length){
   ancho = textWidth(frase[contador]); 
   text(frase[contador], x, 200);
     if(x <= 0){
@@ -57,7 +58,7 @@ void draw(){
     frameRate(60);
     pushMatrix();
     translate(200,200);
-    rotate(radians(degrees));
+    rotate(radians(degrees));    
     text("Hasta pronto", -(textWidth("Hasta luego")/2), 0);
     popMatrix();
   }
